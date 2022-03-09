@@ -1,0 +1,284 @@
+.root {
+    background-size: cover;
+    background-image: url(https://boring-mcclintock-9267da.netlify.app/assets/login-background.jpg);
+    box-sizing: border-box;
+    display: block;
+}
+.container {
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.container-box-{
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    color: rgba(0, 0, 0, 0.87);
+}
+.box-form-{
+    padding: 44px 60px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #fff;
+    box-sizing: border-box;
+    display: block;
+}
+.box-form- h1{
+    text-align: center;
+    font-size: 2.125rem;
+    font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: 0.00738em;
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    color: rgba(0, 0, 0, 0.87);
+}
+.box-form- p{
+    color: rgba(0, 0, 0, 0.54);
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    box-sizing: border-box;
+    display: block;
+}
+.form-container-{
+    align-content: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+}
+.form-box-{
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    color: rgba(0, 0, 0, 0.87);
+}
+.form-input-{
+    flex-grow: 1;
+    margin-bottom: 1px;
+    width: calc(100% + 32px);
+    margin: -16px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+}
+.form-card{
+    padding: 16px;
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-box{
+    width: 300px;
+    height: 189px;
+    position: relative;
+    padding: 16px 32px 16px 32px;
+    box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.87);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: block;
+}
+.card-content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-content span{
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    position: absolute;
+    height: 1em;
+    overflow: hidden;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    user-select: none;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+}
+.input-card-number{
+    width: 100%;
+    border: 0;
+    margin: 0;
+    display: inline-flex;
+    padding: 0;
+    position: relative;
+    min-width: 0;
+    flex-direction: column;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.input-card-number label{
+    transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    transform: translate(0, 1.5px) scale(0.75);
+}
+.number-form{
+    margin-top: 16px;
+    position: relative;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: text;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
+    line-height: 1.1875em;
+}
+.number-form:before{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "\00a0";
+    position: absolute;
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    pointer-events: none;
+}
+.number-form:after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    border-bottom: 2px solid #ffc617;
+    pointer-events: none;
+    border-bottom-color: #1473e6;
+}
+.number-form input {
+    box-shadow: none;
+    font:inherit;
+    color: currentColor;
+    width: 100%;
+    border: 0;
+    height: 1.1875em;
+    margin: 0;
+    display: block;
+    padding: 6px 0 7px;
+    min-width: 0;
+    background: none;
+    box-sizing: content-box;
+}
+.input-card-data{
+    border: 0;
+    display: inline-flex;
+    padding: 0;
+    position: relative;
+    min-height: 0;
+    flex-direction: column;
+    vertical-align: top;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+}
+.card-data-format{
+    position: relative;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: text;
+    display: inline-flex;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
+    line-height: 1.1875em;
+}
+.card-data-format:before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "\00a0";
+    position: absolute;
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    pointer-events: none;
+}
+.card-data-format:after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    border-bottom: 2px solid #ffc617;
+    pointer-events: none;
+    border-bottom-color: #1473e6;
+}
+.card-data-format input {
+    border: none;
+}
+
+.top-right {
+    margin-top: -23px;
+}
+.top-right-cvc{
+    margin-top: -12px;
+}
+
+.enter-{
+    box-sizing: border-box;
+    text-align: -webkit-center;
+    display: block;
+    color: rgba(0, 0, 0, 0.87);
+}
+.enter- button{
+    margin-top: 24px;
+    margin-left: 8px;
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: none;
+    background-color: #ffc617;
+    padding: 6px 16px;
+    min-width: 64px;
+    box-sizing: border-box;
+    font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    border-radius: 4px;
+    text-transform: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    outline: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+}
+.enter- button:hover{
+    box-shadow: -3px 5px 10px -2px rgba(34, 60, 80, 0.5);
+    background-color: rgb(201, 183, 162);
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.container-map{
+    z-index: -10;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+}
+.map{
+    height: 867px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+}
+.map-box{
+    touch-action: none;
+    box-sizing: border-box;
+    cursor: grab;
+    user-select: none;
+    display: block;
+}
+.canvas-map{
+    position: absolute;
+    width: 628px;
+    height: 867px;
+    touch-action: none;
+    box-sizing: border-box;
+    aspect-ratio: auto 628 / 867;
+    cursor: grab;
+}

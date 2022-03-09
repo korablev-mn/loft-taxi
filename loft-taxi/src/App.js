@@ -2,6 +2,8 @@ import React from 'react';
 import { Home } from './components/home/Home'
 import { Map } from './components/map/Map'
 import { Profile } from './components/profile/Profile'
+import './App.css'
+import { Logo } from '../src/components/home/Logo'
 
 const PAGES = {
   home: <Home/>,
@@ -17,22 +19,24 @@ class App extends React.Component {
   }
 
   render () {
-    // const { page } = this.state
-    // const Page = PAGES[page]
     return (
       <>
-      <header>
+      <header class="header">
+        
         <nav>
-          <button onClick={() => this.navigatePage('home')}>Home</button>
-          <button onClick={() => this.navigatePage('profile')}>Profile</button>
-          <button onClick={() => this.navigatePage('map')}>Map</button>
+        <div class="container-head">
+          <p><Logo/></p>
+          <button onClick={() => this.navigatePage('map')}>Карта</button>
+          <button onClick={() => this.navigatePage('profile')}>Профиль</button>
+          <button onClick={() => this.navigatePage('home')}>Выйти</button>        
+          </div>
         </nav>
+        
       </header>
       <main>
         <section>
           { PAGES[this.state.page] }
         </section>
-         {/* <Page setPage={this.navigatePage}/> */}
       </main>
       </>
     )
