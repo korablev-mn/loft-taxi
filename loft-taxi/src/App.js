@@ -1,41 +1,35 @@
 import React from 'react';
-import { Home } from './components/home/Home'
-import { Map } from './components/map/Map'
-import { Profile } from './components/profile/Profile'
+import { Map } from '../src/pages/map/Map'
+import { Login } from '../src/pages/login/Login'
+import { Rego } from '../src/pages/registration/Rego'
+import { Profile } from '../src/pages/profile/Profile'
 import './App.css'
-import { Logo } from '../src/components/home/Logo'
+
 
 const PAGES = {
-  home: <Home/>,
-  profile: <Profile/>,
-  map: <Map/>
+  login: Login,
+  profile: Profile,
+  map: Map,
+  rego: Rego
 }
 
 class App extends React.Component {
-  state = {page: 'home'}
+  state = {page: 'login'}
 
-  navigatePage = (page) => {
+  setPage = (page) => {
     this.setState({ page })
   }
 
   render () {
+    const { page } = this.state
+    const Page = PAGES[page]
+
     return (
       <>
-      <header class="header">
-        
-        <nav>
-        <div class="container-head">
-          <p><Logo/></p>
-          <button onClick={() => this.navigatePage('map')}>Карта</button>
-          <button onClick={() => this.navigatePage('profile')}>Профиль</button>
-          <button onClick={() => this.navigatePage('home')}>Выйти</button>        
-          </div>
-        </nav>
-        
-      </header>
       <main>
         <section>
-          { PAGES[this.state.page] }
+          {/* { PAGES[this.state.page] } */}
+          <Page setPage = {this.setPage} />
         </section>
       </main>
       </>

@@ -1,8 +1,11 @@
-import React from 'react'
-import './home.css'
+import { React, Component } from 'react'
+import './login.css'
 import { Logo } from './Logo'
 
-export const Home = () => {
+class Login extends Component {
+  render() {
+  const { setPage } = this.props
+
     return (
       <>
       <div class="root">
@@ -12,12 +15,12 @@ export const Home = () => {
             </div>
             <div class="box">
               <div class="form-container">
-                <form class="form">
+                <form class="form" onSubmit={() => setPage('map')}>
                   <div class="form-content">
                     <div class="first-input input">
                       <h1>Войти</h1>
                       <p>Новый пользователь? 
-                        <a href="https://boring-mcclintock-9267da.netlify.app/signup">Зарегистрируйтесь</a>
+                        <a onClick={() => setPage('rego')}>Зарегистрируйтесь</a>
                       </p>
                     </div>
                     <div class="input">
@@ -50,13 +53,9 @@ export const Home = () => {
             </div>
           </div>
       </div>
-
-    {/* <form>
-      <label htmlFor='email'>Email:</label>
-      <input id='email' type='email' name='email' size='28'/>
-      <label htmlFor='pass'>Password:</label>
-      <input id='pass' type='password' name='password' size='28'/>
-    </form> */}
     </>
     )
+  }
 }
+
+export { Login }

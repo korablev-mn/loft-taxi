@@ -1,10 +1,13 @@
 import React from 'react'
 import './profile.css'
 import { Master } from './Master'
+import { Header } from '../../components/Header'
 
-export const Profile = () => {
+export const Profile = (props) => {
+    const { setPage } = props
     return (
     <>
+    <Header setPage={setPage}/>
       <div class="root">
         <div class="container">
             <div class="container-box-">
