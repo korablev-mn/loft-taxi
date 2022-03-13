@@ -1,13 +1,23 @@
 import { React, Component } from 'react'
+import { withAuth } from '../../components/AuthContext'
 import './login.css'
 import { Logo } from './Logo'
 
 class Login extends Component {
+
+  goToProfile = () => {
+    this.props.setPage('profile')
+  }
+
+  authenticate = (event) => {
+    event.preventDefault()
+    const {email, password } = event.target;
+    this.props.logIn(email.value, password.value)
+  }
   render() {
   const { setPage } = this.props
 
     return (
-      <>
       <div class="root">
           <div class="container">
             <div class="box">
@@ -15,7 +25,11 @@ class Login extends Component {
             </div>
             <div class="box">
               <div class="form-container">
-                <form class="form" onSubmit={() => setPage('map')}>
+                {
+                  this.props.isLoggedIn ? (
+                    <p> You are logged <button onClick={this.goToProfile}>Profile</button></p>
+                  ) : (
+                <form class="form" onSubmit={this.authenticate}>
                   <div class="form-content">
                     <div class="first-input input">
                       <h1>Войти</h1>
@@ -25,20 +39,17 @@ class Login extends Component {
                     </div>
                     <div class="input">
                       <div class="div-block">
-                        <label htmlFor='email'>
-                        Имя пользователя*
-                        </label>
+                        <label htmlFor='email'>Имя пользователя*</label>
                         <div class="div-input">
-                          <input id='email' name="email" placeholder="Имя пользователя" required="" type="text" value=""/>
+                          <input id='email' name="email" placeholder="Имя пользователя" type="text" value=""/>
                         </div>
                       </div>
                     </div>
                     <div class="input">
                       <div class="div-block">
-                        <label htmlFor='pass'>Пароль
-                        </label>
+                        <label htmlFor='password'>Пароль</label>
                         <div class="div-input">
-                          <input id='pass' name="pass" placeholder="Пароль" required="" type="password" value=""/>
+                          <input id='password' name="password" placeholder="Пароль" type="password" value=""/>
                         </div>
                       </div>
                     </div>
@@ -49,13 +60,16 @@ class Login extends Component {
                     </div>
                   </div>
                 </form>
+                  )
+                }
               </div>
             </div>
           </div>
       </div>
-    </>
     )
   }
 }
 
 export { Login }
+
+export const HomeWIthAuth = withAuth(Login)

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Map } from '../src/pages/map/Map'
-import { Login } from '../src/pages/login/Login'
+import { HomeWIthAuth } from '../src/pages/login/Login'
 import { Rego } from '../src/pages/registration/Rego'
-import { Profile } from '../src/pages/profile/Profile'
+import { ProfileWithAuth } from '../src/pages/profile/Profile'
+import { withAuth } from './components/AuthContext';
 import './App.css'
 
 
 const PAGES = {
-  login: Login,
-  profile: Profile,
-  map: Map,
+  login: (props) => <HomeWIthAuth {... props}/>,
+  profile: (props) => <ProfileWithAuth {... props}/>,
+  map: (props) => <Map {... props}/>,
   rego: Rego
 }
 
@@ -17,7 +18,12 @@ class App extends React.Component {
   state = {page: 'login'}
 
   setPage = (page) => {
-    this.setState({ page })
+    if (this.props.isLoggedIn) {
+      this.setState({ page })
+    } else {
+      this.setState({ page: 'login' })
+    }
+    
   }
 
   render () {
@@ -37,4 +43,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth(App);
