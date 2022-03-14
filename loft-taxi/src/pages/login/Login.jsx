@@ -41,7 +41,7 @@ class Login extends Component {
                       <div class="div-block">
                         <label htmlFor='email'>Имя пользователя*</label>
                         <div class="div-input">
-                          <input id='email' name="email" placeholder="Имя пользователя" type="text" value=""/>
+                          <input id='email' name="email" placeholder="Имя пользователя" type="text"/>
                         </div>
                       </div>
                     </div>
@@ -49,7 +49,7 @@ class Login extends Component {
                       <div class="div-block">
                         <label htmlFor='password'>Пароль</label>
                         <div class="div-input">
-                          <input id='password' name="password" placeholder="Пароль" type="password" value=""/>
+                          <input id='password' name="password" placeholder="Пароль" type="password"/>
                         </div>
                       </div>
                     </div>
