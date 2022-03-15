@@ -21,7 +21,7 @@ class App extends React.Component {
     if (this.props.isLoggedIn) {
       this.setState({ page })
     } else {
-      this.setState({ page: 'login' })
+      this.setState('login')
     }
     
   }

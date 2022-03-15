@@ -7,7 +7,7 @@ export class Header extends Component {
     
     exit = () => {
       console.log('выход');
-      this.props.setPage({page: 'login'})
+      this.props.setPage('login')
       this.props.logOut();
     }
     render(){
