@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './profile.css'
 import { Master } from './Master'
 import { HederWithAuth } from '../../components/Header'
-import { withAuth } from '../../components/AuthContext'
+import { connect } from 'react-redux'
 
 export class Profile extends Component {
     
@@ -75,4 +75,4 @@ export class Profile extends Component {
     )}
 }
 
-export const ProfileWithAuth = withAuth(Profile)
+export const ProfileWithAuth = connect(null, null)(Profile)

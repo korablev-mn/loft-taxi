@@ -32,7 +32,7 @@
   display: block;
   color: rgba(0, 0, 0, 0.87);
 }
-.container-head button{
+.container-head span{
   padding: 6px 8px;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;

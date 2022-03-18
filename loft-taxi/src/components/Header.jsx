@@ -1,7 +1,8 @@
 import '../App.css'
 import { Logo } from '../pages/login/Logo'
-import { withAuth } from './AuthContext'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logOut } from '../actions'
 
 export class Header extends Component {
     
@@ -18,9 +19,13 @@ export class Header extends Component {
         <nav>
         <div class="container-head">
           <p><Logo/></p>
-          <button onClick={() => setPage('map')}>Карта</button>
+          <span><Link to='/map'>Карта</Link></span>
+          <span><Link to='/profile'>Профиль</Link></span>
+          <span><Link to='/'>Выйти</Link></span>
+          
+          {/* <button onClick={() => setPage('map')}>Карта</button>
           <button onClick={() => setPage('profile')}>Профиль</button>
-          <button onClick={this.exit}>Выйти</button>        
+          <button onClick={this.exit}>Выйти</button>         */}
           </div>
         </nav>
         
@@ -28,4 +33,6 @@ export class Header extends Component {
     )}
 }
 
-export const HederWithAuth = withAuth(Header)
+export const HederWithAuth = connect(
+  null, { logOut }
+)(Header)

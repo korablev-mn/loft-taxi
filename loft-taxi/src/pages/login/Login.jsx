@@ -1,7 +1,8 @@
 import { React, Component } from 'react'
-import { withAuth } from '../../components/AuthContext'
 import './login.css'
 import { Logo } from './Logo'
+import { connect } from 'react-redux'
+import { auth } from '../../actions'
 
 class Login extends Component {
 
@@ -12,7 +13,7 @@ class Login extends Component {
   authenticate = (event) => {
     event.preventDefault()
     const {email, password } = event.target;
-    this.props.logIn(email.value, password.value)
+    this.props.auth(email.value, password.value)
   }
   render() {
   const { setPage } = this.props
@@ -72,4 +73,7 @@ class Login extends Component {
 
 export { Login }
 
-export const HomeWIthAuth = withAuth(Login)
+export const HomeWIthAuth = connect(
+  (state) => ({isLoggedIn: state.auth.isLoggedIn}),
+  { auth }
+)(Login)
