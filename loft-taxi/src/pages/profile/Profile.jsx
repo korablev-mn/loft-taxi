@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './profile.css'
 import { Master } from './Master'
-import { Header } from '../../components/Header'
+import { HederWithAuth } from '../../components/Header'
+import { withAuth } from '../../components/AuthContext'
 
-export const Profile = (props) => {
-    const { setPage } = props
+export class Profile extends Component {
+    
+    render() {
+    const { setPage } = this.props;
     return (
     <>
-    <Header setPage={setPage}/>
+    <HederWithAuth setPage={setPage}/>
       <div class="root">
         <div class="container">
             <div class="container-box-">
@@ -68,5 +71,8 @@ export const Profile = (props) => {
             </div>
         </div>
       </div>
-    </>)
+    </>
+    )}
 }
+
+export const ProfileWithAuth = withAuth(Profile)
