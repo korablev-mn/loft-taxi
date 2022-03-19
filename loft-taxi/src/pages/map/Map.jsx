@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { HederWithAuth } from '../../components/Header'
 import mapboxgl from 'mapbox-gl'
 import './map.css'
 
@@ -20,11 +19,9 @@ export class Map extends Component {
         this.map.remove()
     }
     render() {
-        const { setPage } = this.props
 
         return (
             <>
-            <HederWithAuth setPage={setPage}/>
                 <div class="container-map" className='map-wrapper'>
                     <div data-testid="map" className='map' ref={this.mapContainer}/>
                 </div>

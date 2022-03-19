@@ -3,20 +3,17 @@ import './login.css'
 import { Logo } from './Logo'
 import { connect } from 'react-redux'
 import { auth } from '../../actions'
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
-
-  goToProfile = () => {
-    this.props.setPage('profile')
-  }
 
   authenticate = (event) => {
     event.preventDefault()
     const {email, password } = event.target;
     this.props.auth(email.value, password.value)
   }
+  
   render() {
-  const { setPage } = this.props
 
     return (
       <div class="root">
@@ -28,14 +25,14 @@ class Login extends Component {
               <div class="form-container">
                 {
                   this.props.isLoggedIn ? (
-                    <p> You are logged <button onClick={this.goToProfile}>Profile</button></p>
+                    <p> You are logged <Link to='/profile'>Profile</Link></p>
                   ) : (
                 <form class="form" onSubmit={this.authenticate}>
                   <div class="form-content">
                     <div class="first-input input">
                       <h1>Войти</h1>
                       <p>Новый пользователь? 
-                        <a onClick={() => setPage('rego')}>Зарегистрируйтесь</a>
+                        <Link to='/rego'>Зарегистрируйтесь</Link>
                       </p>
                     </div>
                     <div class="input">
@@ -55,7 +52,7 @@ class Login extends Component {
                       </div>
                     </div>
                     <div class="input" align="right">
-                      <button class="enter" tabindex="0" type="submit">
+                      <button class="enter" type="submit">
                         <span>Войти</span>
                       </button>
                     </div>

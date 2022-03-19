@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import './profile.css'
 import { Master } from './Master'
-import { HederWithAuth } from '../../components/Header'
 import { connect } from 'react-redux'
 
 export class Profile extends Component {
     
     render() {
-    const { setPage } = this.props;
     return (
     <>
-    <HederWithAuth setPage={setPage}/>
       <div class="root">
         <div class="container">
             <div class="container-box-">

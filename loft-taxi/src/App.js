@@ -1,44 +1,33 @@
 import React from 'react';
-// import { Map } from '../src/pages/map/Map'
-// import { HomeWIthAuth } from '../src/pages/login/Login'
-// import { Rego } from '../src/pages/registration/Rego'
-// import { ProfileWithAuth } from '../src/pages/profile/Profile'
+
+import { HomeWIthAuth } from '../src/pages/login/Login'
+import { Rego } from '../src/pages/registration/Rego'
+import { ProfileWithAuth } from '../src/pages/profile/Profile'
+import { HederWithAuth } from '../src/components/Header'
+import { Routes, Route } from 'react-router-dom';
+import {PrivateRoute} from './PrivateRoute'
+import { Map } from '../src/pages/map/Map'
 import './App.css'
 import { connect } from 'react-redux'
 
-
-// const PAGES = {
-//   login: (props) => <HomeWIthAuth {... props}/>,
-//   profile: (props) => <ProfileWithAuth {... props}/>,
-//   map: (props) => <Map {... props}/>,
-//   rego: Rego
-// }
-
 class App extends React.Component {
-  // state = {page: 'login'}
-
-  // setPage = (page) => {
-  //   if (this.props.isLoggedIn) {
-  //     this.setState({ page })
-  //   } else {
-  //     this.setState('login')
-  //   }
-    
-  // }
-
-  render () {
-    const { page } = this.state
-    const Page = PAGES[page]
+  
+  render() {
 
     return (
-      <>
-      <main>
-        <section>
-          {/* { PAGES[this.state.page] } */}
-          <Page setPage = {this.setPage} />
-        </section>
-      </main>
-      </>
+        <main>
+          <section>
+            { this.props.isLoggedIn ? <HederWithAuth /> : <></> }
+            <Routes>
+              <Route exact path='/' element={<HomeWIthAuth/>} />
+              <Route exact path='/rego' element={<Rego/>} />
+              <PrivateRoute path='/profile' element={<ProfileWithAuth/>} />
+              <PrivateRoute path='/map' element={<Map/>} />
+              {/* <Route exact path='/profile' element={<ProfileWithAuth/>} />
+              <Route exact path='/map' element={<Map/>} /> */}
+            </Routes>
+          </section>
+        </main>
     )
   }
 }
