@@ -10,3 +10,7 @@ export const PrivateRoute = connect((state) => ({
         render={(props) => isLoggedIn ? <Component {...props} /> : <Navigate to='/' />}
     />
 ))
+
+export const PrivatePage = ({component, flag}) => {
+    return flag ? component : <Navigate to='/'/>
+}

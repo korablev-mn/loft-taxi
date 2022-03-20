@@ -1,9 +1,9 @@
 import { React, Component } from 'react'
 import './login.css'
 import { Logo } from './Logo'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { auth } from '../../actions'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 class Login extends Component {
 
@@ -11,6 +11,7 @@ class Login extends Component {
     event.preventDefault()
     const {email, password } = event.target;
     this.props.auth(email.value, password.value)
+    // useSelector(state.auth.isLoggedIn ? <Navigate to='/map'/> : null
   }
   
   render() {
@@ -23,10 +24,6 @@ class Login extends Component {
             </div>
             <div class="box">
               <div class="form-container">
-                {
-                  this.props.isLoggedIn ? (
-                    <p> You are logged <Link to='/profile'>Profile</Link></p>
-                  ) : (
                 <form class="form" onSubmit={this.authenticate}>
                   <div class="form-content">
                     <div class="first-input input">
@@ -58,8 +55,6 @@ class Login extends Component {
                     </div>
                   </div>
                 </form>
-                  )
-                }
               </div>
             </div>
           </div>

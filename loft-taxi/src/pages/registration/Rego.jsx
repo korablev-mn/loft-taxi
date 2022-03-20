@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export function Rego(props) {
     const { setPage } = props
+    const navigate = useNavigate() 
 
     return (
         <>
@@ -11,6 +12,7 @@ export function Rego(props) {
                 <button type='submit'>Зарегистрироваться</button>
             </form>
             <Link to='/'>Back</Link>
+            <button onClick={() => navigate('/')}>Go Back</button>
         </>
     )
 }
