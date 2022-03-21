@@ -14,13 +14,13 @@ export class Header extends Component {
 
     render(){
     return (
-        <header class="header">
+        <header className="header">
         
         <nav>
-        <div class="container-head">
-          <p><Logo/></p>
-          <span><Link to='/map' class='noneBorder'>Карта</Link></span>
-          <span><Link to='/profile' class='noneBorder'>Профиль</Link></span>
+        <div className="container-head">
+          <div><Logo className='logo'/></div>
+          <span><Link to='/map' className='noneBorder'>Карта</Link></span>
+          <span><Link to='/profile' className='noneBorder'>Профиль</Link></span>
           <button onClick={this.exit}>Выйти</button>
           </div>
         </nav>  

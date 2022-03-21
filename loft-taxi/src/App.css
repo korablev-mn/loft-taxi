@@ -21,7 +21,7 @@
   color: rgba(0, 0, 0, 0.87);
   background-color: cadetblue;
 }
-.container-head p{
+.container-head div{
   flex-grow: 1;
   font-size: 1rem;
   font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
