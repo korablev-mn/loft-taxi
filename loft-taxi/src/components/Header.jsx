@@ -9,6 +9,7 @@ export class Header extends Component {
     
     exit = () => {
       console.log('выход');
+      localStorage.removeItem('token')
       this.props.logOut();
     }
 
