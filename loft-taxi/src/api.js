@@ -18,7 +18,7 @@ export const serverLogin2 = async (email, password) => {
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }
 
-export const postCard = async (cardNumber, expiryDate, cardName, cvc) => {
+export const postCards = async (cardNumber, expiryDate, cardName, cvc) => {
     const data = {
         'cardNumber': cardNumber,
         'expiryDate': expiryDate,
@@ -35,8 +35,8 @@ export const postCard = async (cardNumber, expiryDate, cardName, cvc) => {
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }
 
-export const getCard = async () => {
+export const getCards = async () => {
     return fetch(
-        `https://loft-taxi.glitch.me/card?token=AUTH_TOKEN`
+        `https://loft-taxi.glitch.me/card?token=AUTH_TOKEN`, {method: 'GET'}
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }
