@@ -3,17 +3,22 @@
 export const LOG_IN = 'LOG_IN'
 export const LOG_OUT = 'LOG_OUT'
 export const AUTH = 'AUTH'
-export const SET_CARD = 'SET_CARD'
-export const GET_CARD = 'GET_CARD'
+export const SET_CARD_REQUEST = 'SET_CARD_REQUEST'
+export const SET_CARD_SUCCESS = 'SET_CARD_SUCCESS'
+export const SET_CARD_FAILURE = 'SET_CARD_FAILURE'
+
 export const GET_CARD_REQUEST = 'GET_CARD_REQUEST'
 export const GET_CARD_SUCCESS = 'GET_CARD_SUCCESS'
 export const GET_CARD_FAILURE = 'GET_CARD_FAILURE'
 
-export const logIn = () => ({ type: LOG_IN })
+export const logIn = (token) => ({ type: LOG_IN, payload: token })
 export const logOut = () => ({ type: LOG_OUT })
 export const auth = (email, password) => ({ type: AUTH, payload: { email, password } })
-export const setCard = (cardNumber, expiryDate, cardName, cvc) => ({ type: SET_CARD, payload: { cardNumber, expiryDate, cardName, cvc } })
-export const getCard = () => ({ type: GET_CARD })
+
+export const setCardRequest = (card) => ({ type: SET_CARD_REQUEST, payload: card })
+export const setCardSuccess = data => ({ type: SET_CARD_SUCCESS, payload: data})
+export const setCardFailure = (error) => ({ type: SET_CARD_FAILURE, payload:  error })
+
 export const getCardRequest = () => ({ type: GET_CARD_REQUEST})
-export const getCardSuccess = (data) => ({ type: GET_CARD_SUCCESS, payload: { data }})
-export const getCardFailure = (error) => ({ type: GET_CARD_FAILURE, paeload: { error }})
+export const getCardSuccess = (data) => ({ type: GET_CARD_SUCCESS, payload: data })
+export const getCardFailure = (error) => ({ type: GET_CARD_FAILURE, payload: error })

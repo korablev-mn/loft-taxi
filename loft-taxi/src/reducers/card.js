@@ -1,11 +1,17 @@
 import {
     GET_CARD_REQUEST,
     GET_CARD_SUCCESS,
-    GET_CARD_FAILURE
+    GET_CARD_FAILURE,
+    SET_CARD_REQUEST,
+    SET_CARD_SUCCESS,
+    SET_CARD_FAILURE
 } from '../actions'
 
 const initialState = {
-    data: {},
+    cardName: null,
+    cardNumber: null,
+    expiryDate: null,
+    cvc: null,
     isLoading: false,
     error: null
 }
@@ -15,19 +21,36 @@ export default (state = initialState, action) => {
         case GET_CARD_REQUEST:
             return {
                 ...state,
-                data: {},
+                // data: {},
                 isLoading: true
             }
         case GET_CARD_SUCCESS:
             return {
                 ...state,
-                data: action.payload,
+                ...action.payload,
                 isLoading: false
             }
         case GET_CARD_FAILURE:
             return {
                 ...state,
-                error: action.payload,
+                ...action.payload,
+                isLoading: false
+            }
+        case SET_CARD_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case SET_CARD_SUCCESS:
+            return {
+                ...state,
+                ...action.payload,
+                isLoading: false
+            }
+        case SET_CARD_FAILURE:
+            return {
+                ...state,
+                ...action.payload,
                 isLoading: false
             }
         default:

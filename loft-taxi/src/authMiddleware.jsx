@@ -11,7 +11,7 @@ export const authMiddleware = (store) => (next) => async (action) => {
         if(success) {
             console.log('success connect and token: ' + token);
             localStorage.setItem('token', token)
-            store.dispatch(logIn())
+            store.dispatch(logIn(token))
         }
     } else {
         next(action)
