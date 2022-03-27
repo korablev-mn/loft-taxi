@@ -21,7 +21,7 @@
   color: rgba(0, 0, 0, 0.87);
   background-color: cadetblue;
 }
-.container-head p{
+.container-head div{
   flex-grow: 1;
   font-size: 1rem;
   font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
@@ -32,7 +32,7 @@
   display: block;
   color: rgba(0, 0, 0, 0.87);
 }
-.container-head button{
+.container-head span, button{
   padding: 6px 8px;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;
@@ -56,7 +56,13 @@
   background-color: transparent;
   border: none;
 }
-.container-head button:hover{
+.noneBorder {
+  border: none;
+  user-select: none;
+  text-decoration: none;
+}
+
+.container-head span:hover, button:hover{
   background-color: #8c97ad;
 }
 

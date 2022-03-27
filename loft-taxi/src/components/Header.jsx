@@ -1,31 +1,34 @@
 import '../App.css'
 import { Logo } from '../pages/login/Logo'
-import { withAuth } from './AuthContext'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logOut } from '../actions'
+import { Link } from 'react-router-dom';
 
 export class Header extends Component {
     
     exit = () => {
       console.log('выход');
-      this.props.setPage('login')
+      localStorage.removeItem('token')
       this.props.logOut();
     }
+
     render(){
-    const { setPage } = this.props
     return (
-        <header class="header">
+        <header className="header">
         
         <nav>
-        <div class="container-head">
-          <p><Logo/></p>
-          <button onClick={() => setPage('map')}>Карта</button>
-          <button onClick={() => setPage('profile')}>Профиль</button>
-          <button onClick={this.exit}>Выйти</button>        
+        <div className="container-head">
+          <div><Logo className='logo'/></div>
+          <span><Link to='/map' className='noneBorder'>Карта</Link></span>
+          <span><Link to='/profile' className='noneBorder'>Профиль</Link></span>
+          <button onClick={this.exit}>Выйти</button>
           </div>
-        </nav>
-        
+        </nav>  
       </header>
     )}
 }
 
-export const HederWithAuth = withAuth(Header)
+export const HederWithAuth = connect(
+  null, { logOut }
+)(Header)
