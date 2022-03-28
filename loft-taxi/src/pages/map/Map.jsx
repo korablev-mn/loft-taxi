@@ -22,7 +22,7 @@ export class Map extends Component {
 
         return (
             <>
-                <div class="container-map" className='map-wrapper'>
+                <div className="container-map map-wrapper">
                     <div data-testid="map" className='map' ref={this.mapContainer}/>
                 </div>
             </>)

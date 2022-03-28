@@ -35,8 +35,24 @@ export const postCards = async (cardNumber, expiryDate, cardName, cvc) => {
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }
 
-export const getCards = async () => {
+export const getCards = async (token) => {
     return fetch(
-        `https://loft-taxi.glitch.me/card?token=AUTH_TOKEN`, {method: 'GET'}
+        `https://loft-taxi.glitch.me/card?token=${token}`, {method: 'GET'}
+    ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
+}
+
+export const registration = async (email, password, name, surname) => {
+    const data = {
+        'email': email,
+        'password': password,
+        'name': name,
+        'surname': surname
+    }
+    return fetch(
+        `https://loft-taxi.glitch.me/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        }
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }

@@ -13,13 +13,13 @@
     flex-wrap: wrap;
     box-sizing: border-box;
 }
-.container-box-{
+.container_box{
     margin: 0;
     box-sizing: border-box;
     display: block;
     color: rgba(0, 0, 0, 0.87);
 }
-.box-form-{
+.box_form{
     padding: 44px 60px;
     margin-top: 32px;
     margin-bottom: 24px;
@@ -30,7 +30,7 @@
     box-sizing: border-box;
     display: block;
 }
-.box-form- h1{
+.box_form h1{
     text-align: center;
     font-size: 2.125rem;
     font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
@@ -42,7 +42,7 @@
     display: block;
     color: rgba(0, 0, 0, 0.87);
 }
-.box-form- p{
+.box_form p{
     color: rgba(0, 0, 0, 0.54);
     margin-bottom: 40px;
     text-align: center;
@@ -54,7 +54,7 @@
     box-sizing: border-box;
     display: block;
 }
-.form-container-{
+.form_container{
     align-content: center;
     width: 100%;
     display: flex;
@@ -62,7 +62,7 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
 }
-.form-box-{
+.form_box{
     flex-grow: 0;
     max-width: 100%;
     flex-basis: 100%;
@@ -71,7 +71,7 @@
     display: block;
     color: rgba(0, 0, 0, 0.87);
 }
-.form-input-{
+.form_input{
     flex-grow: 1;
     margin-bottom: 1px;
     width: calc(100% + 32px);
@@ -82,7 +82,7 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
 }
-.form-card{
+.form_card{
     padding: 16px;
     flex-grow: 0;
     max-width: 50%;
@@ -92,7 +92,7 @@
     margin: 0;
     color: rgba(0, 0, 0, 0.87);
 }
-.card-box{
+.card_box{
     width: 300px;
     height: 189px;
     position: relative;
@@ -105,7 +105,7 @@
     box-sizing: border-box;
     display: block;
 }
-.card-content{
+.card_content{
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -113,7 +113,7 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
 }
-.card-content span{
+.card_content span{
     top: 8px;
     right: 8px;
     width: 32px;
@@ -126,7 +126,7 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
 }
-.input-card-number{
+.input_card_number{
     width: 100%;
     border: 0;
     margin: 0;
@@ -138,11 +138,11 @@
     vertical-align: top;
     box-sizing: border-box;
 }
-.input-card-number label{
+.input_card_number label{
     transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
     transform: translate(0, 1.5px) scale(0.75);
 }
-.number-form{
+.number_form{
     margin-top: 16px;
     position: relative;
     width: 100%;
@@ -154,7 +154,7 @@
     font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
     line-height: 1.1875em;
 }
-.number-form:before{
+.number_form:before{
     left: 0;
     right: 0;
     bottom: 0;
@@ -164,7 +164,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.42);
     pointer-events: none;
 }
-.number-form:after {
+.number_form:after {
     left: 0;
     right: 0;
     bottom: 0;
@@ -176,7 +176,7 @@
     pointer-events: none;
     border-bottom-color: #1473e6;
 }
-.number-form input {
+.number_form input {
     box-shadow: none;
     font:inherit;
     color: currentColor;
@@ -190,7 +190,7 @@
     background: none;
     box-sizing: content-box;
 }
-.input-card-data{
+.input_card_data{
     border: 0;
     display: inline-flex;
     padding: 0;
@@ -201,7 +201,7 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
 }
-.card-data-format{
+.card_data_format{
     position: relative;
     color: rgba(0, 0, 0, 0.87);
     cursor: text;
@@ -212,7 +212,7 @@
     font-family: 'Roboto','Helvetica', 'Arial', sans-serif;
     line-height: 1.1875em;
 }
-.card-data-format:before {
+.card_data_format:before {
     left: 0;
     right: 0;
     bottom: 0;
@@ -222,7 +222,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.42);
     pointer-events: none;
 }
-.card-data-format:after {
+.card_data_format:after {
     left: 0;
     right: 0;
     bottom: 0;
@@ -234,24 +234,24 @@
     pointer-events: none;
     border-bottom-color: #1473e6;
 }
-.card-data-format input {
+.card_data_format input {
     border: none;
 }
 
-.top-right {
+.top_right {
     margin-top: -23px;
 }
-.top-right-cvc{
+.top_right_cvc{
     margin-top: -12px;
 }
 
-.enter-{
+.enter{
     box-sizing: border-box;
     text-align: -webkit-center;
     display: block;
     color: rgba(0, 0, 0, 0.87);
 }
-.enter- button{
+.enter button{
     margin-top: 24px;
     margin-left: 8px;
     color: rgba(0, 0, 0, 0.87);
@@ -277,7 +277,7 @@
     justify-content: center;
     text-decoration: none;
 }
-.enter- button:hover{
+.enter button:hover{
     box-shadow: -3px 5px 10px -2px rgba(34, 60, 80, 0.5);
     background-color: rgb(201, 183, 162);
     cursor: pointer;

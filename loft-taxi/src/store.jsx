@@ -3,7 +3,7 @@ import rootReducer from "./reducers";
 // import { authMiddleware } from "./authMiddleware";
 // import { cardMiddleware } from "./cardMiddleware";
 import createSagaMiddleware from "redux-saga";
-import { authSaga } from '../src/saga/authSaga'
+import { rootSaga } from './saga/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -18,4 +18,4 @@ export const store = createStore(rootReducer,
         applyMiddleware(sagaMiddleware)
         ));
 
-sagaMiddleware.run(authSaga)
+sagaMiddleware.run(rootSaga)
