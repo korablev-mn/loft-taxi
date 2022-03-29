@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import mapboxgl from 'mapbox-gl'
 import './map.css'
+import { FormFromTo } from '../../components/FormFromTo'
+const onSubmit=()=> {
+
+}
+
+const validate = () => {
+
+}
 
 export class Map extends Component {
     map = null;
@@ -18,12 +26,23 @@ export class Map extends Component {
     componentWillUnmount() {
         this.map.remove()
     }
+
     render() {
 
         return (
             <>
                 <div className="container-map map-wrapper">
                     <div data-testid="map" className='map' ref={this.mapContainer}/>
+                </div>
+                <div className='window'>
+                    <FormFromTo/>
+                    {/* <div className='display'>
+                        <div className='block'>
+
+                        </div>
+                        <div className='block'></div>
+                        <div className='block'></div>
+                    </div> */}
                 </div>
             </>)
     }

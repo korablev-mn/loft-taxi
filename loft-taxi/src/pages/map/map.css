@@ -31,3 +31,34 @@
     aspect-ratio: auto 628 / 867;
     cursor: grab;
 }
+.window{
+    top: 40px;
+    left: 20px;
+    padding: 16px;
+    position: absolute;
+    max-width: 30%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: aliceblue;
+    box-sizing: border-box;
+    display: block;
+}
+.display{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87)
+}
+.block{
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    color: rgba(0,0,0,0.87)
+}
