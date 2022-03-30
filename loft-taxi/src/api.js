@@ -56,3 +56,15 @@ export const registration = async (email, password, name, surname) => {
         }
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }
+
+export const route = async (address1, address2) => {
+    return fetch(
+        `https://loft-taxi.glitch.me/route?address1=${address1}&address2=${address2}`
+    ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
+}
+
+export const addressList = async () => {
+    return fetch(
+        `https://loft-taxi.glitch.me/addressList`
+    ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
+}
