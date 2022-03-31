@@ -41,6 +41,6 @@ export const routeRequest = (data) => ({ type: ROUTE_REQUEST, payload: data })
 export const routeSuccess = data => ({ type: ROUTE_SUCCESS, payload: data})
 export const routeFailure = (error) => ({ type: ROUTE_FAILURE, payload:  error })
 
-export const addressRequest = (data) => ({ type: ADDRESS_REQUEST, payload: data })
+export const addressRequest = () => ({ type: ADDRESS_REQUEST })
 export const addressSuccess = data => ({ type: ADDRESS_SUCCESS, payload: data})
 export const addressFailure = (error) => ({ type: ADDRESS_FAILURE, payload:  error })

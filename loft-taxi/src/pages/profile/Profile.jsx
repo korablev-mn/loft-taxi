@@ -82,7 +82,7 @@ export class Profile extends Component {
                                     </div>
                                     <div className={style.form_card}>
                                         <div className={style.card_box}>
-                                            <div className={style.card_content + style.top_right}>
+                                            <div className={`${style.card_content} ${style.top_right}`}>
                                               <div className={style.input_card_number}>
                                                   <label htmlFor='cardName'>Имя владельца *</label>
                                                   <div className={style.number_form}>
@@ -90,7 +90,7 @@ export class Profile extends Component {
                                                   </div>
                                               </div>
                                             </div>
-                                            <div className={style.input_card_data + style.top_right_cvc}>
+                                            <div className={`${style.input_card_data} ${style.top_right_cvc}`}>
                                                 <div className={style.card_data_format}>
                                                     <input id='cvc' name="cvc" placeholder="CVC" type="text" defaultValue={card.cvc}/>
                                                 </div>

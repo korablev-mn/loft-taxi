@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import mapboxgl from 'mapbox-gl'
 import './map.css'
 import { FormFromToAuth } from '../../components/FormFromTo'
+import { getCardRequest, addressRequest } from "../../actions";
+import { Alert } from '../../components/Alert';
+import { connect } from "react-redux";
 
-export class Map extends Component {
+class MapComponent extends Component {
     map = null;
     mapContainer = React.createRef();
     componentDidMount() {
@@ -15,6 +18,8 @@ export class Map extends Component {
             center:[30.1231236, 59.9874563],
             zoom: 10
         })
+        getCardRequest()
+        addressRequest()
     }
     componentWillUnmount() {
         this.map.remove()
@@ -28,7 +33,8 @@ export class Map extends Component {
                     <div data-testid="map" className='map' ref={this.mapContainer}/>
                 </div>
                 <div className='window'>
-                    <FormFromToAuth/>
+                    {this.props.card.cardName ? <FormFromToAuth/> : <Alert/>}
+                    {this.props.card.error && <p>{this.props.card.error}</p>}
                     {/* <div className='display'>
                         <div className='block'>
 
@@ -40,3 +46,5 @@ export class Map extends Component {
             </>)
     }
 }
+
+export const Map = connect((state) => ({ card: state.card }) , {getCardRequest, addressRequest})(MapComponent)

@@ -15,4 +15,4 @@ export class Alert extends Component {
 
 export const AlertAuth = connect(
   null, null
-)(Header)
+)(Alert)
