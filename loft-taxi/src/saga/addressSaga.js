@@ -10,7 +10,7 @@ export function* addressGetSaga() {
     try {
         const data = yield call(api.addressList)
         console.log(data);
-        yield put(addressSuccess(data))
+        yield put(addressSuccess(data.addresses))
     } catch(e) {
         yield put(addressFailure(e))
     }

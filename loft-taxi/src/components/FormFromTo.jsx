@@ -3,21 +3,23 @@ import { Form, Field } from "react-final-form";
 import { connect } from "react-redux";
 import { routeRequest } from "../actions";
 
-const showResult = async (values) => {
-  console.log(values);
-};
-
 const validate = (value) => (value ? undefined : "Required");
 
-export class FormFromTo extends Component {
+const orderTaxi = async values => {
+  // values.preventDefault();
+  console.log('orderTaxi: ');
+  // console.log(values);
+  // this.props.routeRequest(values.From, values.To)
+};
+
+class FormFromToComponent extends Component {
+
   render() {
-    // const {values, errors } = this.state
     return (
-      <Form
-        onSubmit={showResult}
-        // validate={values => {}}
+      <Form onSubmit={orderTaxi} 
+      // validate={values => {}}
       >
-        {({ handleSUbmit, submitting }) => (
+        {({ handleSUbmit, values, submitting }) => (
           <form onSubmit={handleSUbmit}>
             <div>
               <label>From</label>
@@ -40,7 +42,7 @@ export class FormFromTo extends Component {
                 validate={validate}
                 placeholder="Куда"
               >
-                {this.props.mapA.mapAddress.map((x) => (
+                {this.props.mapA.mapAddress.reverse().map((x) => (
                   <option key={x}>{x}</option>
                 ))}
               </Field>
@@ -55,6 +57,6 @@ export class FormFromTo extends Component {
   }
 }
 
-export const FormFromToAuth = connect((state) => ({ mapA: state.address }), {
+export const FormFromTo = connect((state) => ({ mapA: state.address }), {
   routeRequest
-})(FormFromTo);
+})(FormFromToComponent);
