@@ -5,7 +5,7 @@ import {
 } from '../actions'
 
 const initialState = {
-    mapAddress: [],
+    data: [],
     error: null
 }
 
@@ -19,13 +19,13 @@ export default (state = initialState, action) => {
         case ROUTE_SUCCESS:
             return {
                 ...state,
-                mapAddress: action.payload,
+                data: action.payload,
                 isLoading: false
             }
         case ROUTE_FAILURE:
             return {
                 ...state,
-                error: action.payload,
+                data: action.payload,
                 isLoading: false
             }
         default:

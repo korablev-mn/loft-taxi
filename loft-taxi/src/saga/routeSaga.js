@@ -8,7 +8,12 @@ import {
 
 export function* routeGetSaga(action) {
     try {
-        const data = yield call(api.route, action.payload)
+        console.log('routeSaga: ');
+        console.log(action.payload);
+        const { From, To } = action.payload
+        const data = yield call(api.route, From, To)
+        console.log('data: ');
+        console.log(data);
         yield put(routeSuccess(data))
     } catch(e) {
         yield put(routeFailure(e))

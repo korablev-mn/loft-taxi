@@ -5,30 +5,39 @@ import { routeRequest } from "../actions";
 
 const validate = (value) => (value ? undefined : "Required");
 
-const orderTaxi = async values => {
-  // values.preventDefault();
-  console.log('orderTaxi: ');
-  // console.log(values);
-  // this.props.routeRequest(values.From, values.To)
-};
+// const orderTaxi = async values => {
+//   console.log('orderTaxi: ');
+//   console.log(values.To);
+//   console.log(values.From);
+//   console.log(routeRequest(values));
+//   routeRequest(values)
+// };
 
 class FormFromToComponent extends Component {
 
+  orderTaxi = async values => {
+    console.log('orderTaxi: ');
+    this.props.routeRequest(values)
+  };
+
   render() {
+    const { route } = this.props
     return (
-      <Form onSubmit={orderTaxi} 
+      <>
+      <pre>route: {route}</pre>
+      <Form onSubmit={this.orderTaxi} 
       // validate={values => {}}
       >
-        {({ handleSUbmit, values, submitting }) => (
-          <form onSubmit={handleSUbmit}>
+        {({ handleSubmit, submitting }) => (
+          <form onSubmit={handleSubmit}>
             <div>
               <label>From</label>
               <Field
                 name="From"
                 component="select"
                 validate={validate}
-                placeholder="Откуда"
               >
+                <option></option>
                 {this.props.mapA.mapAddress.map((x) => (
                   <option key={x}>{x}</option>
                 ))}
@@ -37,13 +46,13 @@ class FormFromToComponent extends Component {
             <div>
               <label>То</label>
               <Field
-                name="То"
+                name="To"
                 component="select"
                 validate={validate}
-                placeholder="Куда"
               >
-                {this.props.mapA.mapAddress.reverse().map((x) => (
-                  <option key={x}>{x}</option>
+                <option></option>
+                {this.props.mapA.mapAddress.reverse().map((y) => (
+                  <option key={y}>{y}</option>
                 ))}
               </Field>
             </div>
@@ -53,10 +62,10 @@ class FormFromToComponent extends Component {
           </form>
         )}
       </Form>
+      </>
     );
   }
 }
 
-export const FormFromTo = connect((state) => ({ mapA: state.address }), {
-  routeRequest
-})(FormFromToComponent);
+export const FormFromTo = connect((state) => ({ mapA: state.address , route: state.route.data}), 
+{routeRequest})(FormFromToComponent);

@@ -47,4 +47,5 @@ class MapComponent extends Component {
     }
 }
 
-export const Map = connect((state) => ({ card: state.card }) , {getCardRequest, addressRequest})(MapComponent)
+export const Map = connect((state) => ({ card: state.card }),
+ {getCardRequest, addressRequest})(MapComponent)

@@ -37,7 +37,7 @@ export const sendRegisterRequest = (data) => ({ type: SEND_REGISTER_REQUEST, pay
 export const sendRegisterSuccess = () => ({ type: SEND_REGISTER_SUCCESS })
 export const sendRegisterFailure = (error) => ({ type: SEND_REGISTER_FAILURE, payload: error })
 
-export const routeRequest = (data) => ({ type: ROUTE_REQUEST, payload: data })
+export const routeRequest = data => ({ type: ROUTE_REQUEST, payload: data })
 export const routeSuccess = data => ({ type: ROUTE_SUCCESS, payload: data})
 export const routeFailure = (error) => ({ type: ROUTE_FAILURE, payload:  error })
 
