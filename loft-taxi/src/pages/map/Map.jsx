@@ -5,22 +5,52 @@ import { FormFromTo } from '../../components/FormFromTo'
 import { getCardRequest, addressRequest } from "../../actions";
 import { Alert } from '../../components/Alert';
 import { connect } from "react-redux";
+import { drawRoute } from './drawRoute';
 
 class MapComponent extends Component {
-    map = null;
-    mapContainer = React.createRef();
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            lng: 30.1231236,
+            lat: 59.9874563,
+            zoom: 10
+        }
+        this.map = null
+        this.mapContainer = React.createRef();
+    }
+
     componentDidMount() {
         mapboxgl.accessToken = 'pk.eyJ1Ijoib3p5emVybyIsImEiOiJjbDBwcm80eXIwdDdzM2RxeTJkYWhhZG1tIn0.EQtmyfOWfLd-zCRwX47Rmg';
-        const { getCardRequest, addressRequest } = this.props
+        
         this.map = new mapboxgl.Map({
             container: this.mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v9',
-            center:[30.1231236, 59.9874563],
-            zoom: 10
+            center:[this.state.lng, this.state.lat],
+            zoom: this.state.zoom
         })
+        const { getCardRequest, addressRequest } = this.props
         getCardRequest()
         addressRequest()
     }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps !== this.props) {
+            const { routeCords } = this.props
+            if(this.map.getLayer('route')) {
+                this.map.flyTo({
+                    center: [this.state.lng, this.state.lat],
+                    zoom: this.state.zoom
+                })
+                this.map.removeLayer('route')
+                this.map.removeSource('route')
+            }
+            if(routeCords.lenght) {
+                drawRoute(this.map, routeCords)
+            }
+        }
+    }
+
     componentWillUnmount() {
         this.map.remove()
     }
@@ -47,5 +77,5 @@ class MapComponent extends Component {
     }
 }
 
-export const Map = connect((state) => ({ card: state.card }),
+export const Map = connect((state) => ({ card: state.card, routeCords: state.route.data }),
  {getCardRequest, addressRequest})(MapComponent)

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
 import { connect } from "react-redux";
 import { routeRequest } from "../actions";
+import style from './form.module.css'
 
 const validate = (value) => (value ? undefined : "Required");
 
@@ -23,46 +24,45 @@ class FormFromToComponent extends Component {
   render() {
     const { route } = this.props
     return (
-      <>
-      <pre>route: {route}</pre>
+      <div>
       <Form onSubmit={this.orderTaxi} 
       // validate={values => {}}
       >
         {({ handleSubmit, submitting }) => (
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>From</label>
+          <form onSubmit={handleSubmit} className={style.block}>
+            <div className={style.formInput}>
               <Field
                 name="From"
                 component="select"
                 validate={validate}
+                className={style.inputProp}
               >
-                <option></option>
+                <option value='' disabled selected>Откуда</option>
                 {this.props.mapA.mapAddress.map((x) => (
                   <option key={x}>{x}</option>
                 ))}
               </Field>
             </div>
-            <div>
-              <label>То</label>
+            <div className={style.formInput}>
               <Field
                 name="To"
                 component="select"
                 validate={validate}
+                className={style.inputProp}
               >
-                <option></option>
+                <option value='' disabled selected>Куда</option>
                 {this.props.mapA.mapAddress.reverse().map((y) => (
                   <option key={y}>{y}</option>
                 ))}
               </Field>
             </div>
-            <button type="submit" disabled={submitting}>
+            <button type="submit" disabled={submitting} className={style.btnSubmit}>
               Заказать
             </button>
           </form>
         )}
       </Form>
-      </>
+      </div>
     );
   }
 }
