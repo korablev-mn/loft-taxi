@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { sendRegisterRequest } from "../../actions";
 
@@ -25,7 +25,7 @@ class RegoComponent extends Component {
   render() {
     return (
       <>
-      {this.props.success ? <h3> Вы зарегистрированы </h3> : <h3>Зарегистрируйтесь</h3>}
+      {this.props.isLoggedIn ? <Navigate to='/map'/> : <h3>Зарегистрируйтесь</h3>}
         <form onSubmit={this.registration}>
           <input
             id="email"
@@ -59,13 +59,13 @@ class RegoComponent extends Component {
         </form>
         <Link to="/">Back</Link>
         {/* <button onClick={() => this.navigate("/")}>Go Back</button> */}
-        {this.props.error}
+        <p>Error : </p>{this.props.error}
       </>
     );
   }
 }
 
-const mapStateToProps = (state) => ({ success: state.rego.success, error: state.rego.error });
+const mapStateToProps = (state) => ({ isLoggedIn: state.auth.isLoggedIn, error: state.rego.error });
 const mapDispatchToProps = { sendRegisterRequest };
 
 export const Rego = connect(mapStateToProps, mapDispatchToProps)(RegoComponent);

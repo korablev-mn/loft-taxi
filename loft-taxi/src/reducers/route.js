@@ -14,6 +14,7 @@ export default (state = initialState, action) => {
         case ROUTE_REQUEST:
             return {
                 ...state,
+                data: [],
                 isLoading: true
             }
         case ROUTE_SUCCESS:

@@ -33,8 +33,8 @@ export const getCardRequest = () => ({ type: GET_CARD_REQUEST})
 export const getCardSuccess = (data) => ({ type: GET_CARD_SUCCESS, payload: data })
 export const getCardFailure = (error) => ({ type: GET_CARD_FAILURE, payload: error })
 
-export const sendRegisterRequest = (data) => ({ type: SEND_REGISTER_REQUEST, payload: data })
-export const sendRegisterSuccess = (data) => ({ type: SEND_REGISTER_SUCCESS, payload: data })
+export const sendRegisterRequest = data => ({ type: SEND_REGISTER_REQUEST, payload: data })
+export const sendRegisterSuccess = data => ({ type: SEND_REGISTER_SUCCESS, payload: data })
 export const sendRegisterFailure = (error) => ({ type: SEND_REGISTER_FAILURE, payload: error })
 
 export const routeRequest = data => ({ type: ROUTE_REQUEST, payload: data })

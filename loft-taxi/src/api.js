@@ -41,13 +41,13 @@ export const getCards = async (token) => {
     ).then(res => res.json()).catch(error=>console.log('Error: '+ error))
 }
 
-export const registration = async (email, password, name, surname) => {
-    const data = {
-        'email': email,
-        'password': password,
-        'name': name,
-        'surname': surname
-    }
+export const registration = async (data) => {
+    // const data = {
+    //     'email': email,
+    //     'password': password,
+    //     'name': name,
+    //     'surname': surname
+    // }
     return fetch(
         `https://loft-taxi.glitch.me/register`, {
             method: 'POST',

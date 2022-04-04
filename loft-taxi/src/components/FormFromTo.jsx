@@ -31,26 +31,29 @@ class FormFromToComponent extends Component {
         {({ handleSubmit, submitting }) => (
           <form onSubmit={handleSubmit} className={style.block}>
             <div className={style.formInput}>
+            <label>From</label>
               <Field
                 name="From"
                 component="select"
                 validate={validate}
                 className={style.inputProp}
+                placeholder='Откуда'
               >
-                <option value='' disabled selected>Откуда</option>
+                <option defaultValue=''></option>
                 {this.props.mapA.mapAddress.map((x) => (
                   <option key={x}>{x}</option>
                 ))}
               </Field>
             </div>
             <div className={style.formInput}>
+              <label>To</label>
               <Field
                 name="To"
                 component="select"
                 validate={validate}
                 className={style.inputProp}
               >
-                <option value='' disabled selected>Куда</option>
+                <option value='' defaultValue='' disabled selected>Куда</option>
                 {this.props.mapA.mapAddress.reverse().map((y) => (
                   <option key={y}>{y}</option>
                 ))}

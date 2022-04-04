@@ -18,19 +18,20 @@ export default (state = initialState, action) => {
         case SEND_REGISTER_REQUEST:
             return {
                 ...state,
-                isLoading: true
+                error: null,
+                success: false
             }
         case SEND_REGISTER_SUCCESS:
             return {
                 ...state,
                 ...action.payload,
-                isLoading: false
+                success: true
             }
         case SEND_REGISTER_FAILURE:
             return {
                 ...state,
-                ...action.payload,
-                isLoading: false
+                error: action.payload,
+                success: false
             }
         default:
             return state

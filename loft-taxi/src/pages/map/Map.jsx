@@ -35,7 +35,9 @@ class MapComponent extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps !== this.props) {
+        if(prevProps.routeCords !== this.props.routeCords) {
+            console.log('componentDidUpdate');
+            console.log(prevProps);
             const { routeCords } = this.props
             if(this.map.getLayer('route')) {
                 this.map.flyTo({
@@ -45,7 +47,9 @@ class MapComponent extends Component {
                 this.map.removeLayer('route')
                 this.map.removeSource('route')
             }
-            if(routeCords.lenght) {
+            // debugger
+            if(this.props.routeCords.length) {
+                console.log('drawRoute');
                 drawRoute(this.map, routeCords)
             }
         }
@@ -56,7 +60,7 @@ class MapComponent extends Component {
     }
 
     render() {
-
+        console.log(this.props.routeCords);
         return (
             <>
                 <div className="container-map map-wrapper">

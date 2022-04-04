@@ -16,7 +16,6 @@ export function* sendCardSaga(action) {
         console.log(token);
         const data = yield call(api.postCards, action.payload)
         
-        console.log(data.success);
         if(data.success) {
         console.log('DATA >>>:');
         console.log(data);
