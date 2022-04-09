@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './profile.css'
+import style from './profile.module.css'
 import { Master } from './Master'
 import { connect } from 'react-redux'
 import { getCardRequest, setCardRequest } from "../../actions";
@@ -39,24 +39,6 @@ export class Profile extends Component {
         console.log(getCardRequest);
         getCardRequest()
         }
-        // if(localStorage.getItem('token')) {
-        //     this.setState({isLoading: true})
-        //     console.log('have token');
-        //     try{
-        //     const {cardNumber, expiryDate, cardName, cvc } = getCards()
-        //     this.setState({
-        //         cardName: cardName,
-        //         cardNumber: cardNumber,
-        //         expiryDate: expiryDate,
-        //         cvc: cvc
-        //     })
-        //     console.log('card: ' + cardNumber +' '+ expiryDate +' ' + cardName + ' '+ cvc);
-        //     this.setState({isLoading: false})
-        //     } catch(e) {
-        //         console.log('Error: ' + e);
-        //         this.setState({error: e, isLoading: false})
-        //     }
-        // }
     }
     
     render() {
@@ -68,55 +50,55 @@ export class Profile extends Component {
         } else {
     return (
     <>
-      <div class="root">
-        <div class="container">
-            <div class="container-box-">
-                <div class="box-form-">
+      <div className={style.root}>
+        <div className={style.container}>
+            <div className={style.container_box}>
+                <div className={style.box_form}>
                     <h1>Профиль</h1>
                     <p>Способ оплаты</p>
                     <form onSubmit={this.card}>
-                        <div class="form-container-">
-                            <div class="form-box-">
-                                <div class="form-input-">
-                                    <div class="form-card">
-                                        <div class="card-box">
-                                            <div class="card-content">
+                        <div className={style.form_container}>
+                            <div className={style.form_box}>
+                                <div className={style.form_input}>
+                                    <div className={style.form_card}>
+                                        <div className={style.card_box}>
+                                            <div className={style.card_content}>
                                                 <span>
                                                     <Master/>
                                                 </span>
-                                                <div class="input-card-number">
+                                                <div className={style.input_card_number}>
                                                   <label htmlFor='cardNumber'>Номер карты *</label>
-                                                  <div class="number-form">
+                                                  <div className={style.number_form}>
                                                       <input id='cardNumber' name="cardNumber" placeholder="0000 0000 0000 0000" type="text" defaultValue={card.cardNumber}/>
                                                   </div>
                                                 </div>
-                                                <div class="input-card-data">
-                                                    <div class="card-data-format">
+                                                <div className={style.input_card_data}>
+                                                    <div className={style.card_data_format}>
                                                         <input id='expiryDate' name="expiryDate" placeholder="03/22" type="text" defaultValue={card.expiryDate}/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-card">
-                                        <div class="card-box">
-                                            <div class="card-content top-right">
-                                              <div class="input-card-number">
+                                    <div className={style.form_card}>
+                                        <div className={style.card_box}>
+                                            <div className={`${style.card_content} ${style.top_right}`}>
+                                              <div className={style.input_card_number}>
                                                   <label htmlFor='cardName'>Имя владельца *</label>
-                                                  <div class="number-form">
+                                                  <div className={style.number_form}>
                                                       <input id='cardName' name="cardName" placeholder="USER NAME" type="text" defaultValue={card.cardName}/>
                                                   </div>
                                               </div>
                                             </div>
-                                            <div class="input-card-data top-right-cvc">
-                                                <div class="card-data-format">
+                                            <div className={`${style.input_card_data} ${style.top_right_cvc}`}>
+                                                <div className={style.card_data_format}>
                                                     <input id='cvc' name="cvc" placeholder="CVC" type="text" defaultValue={card.cvc}/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="enter-">
+                                <div className={style.enter}>
                                     <button type="submit">
                                         <span>Сохранить</span>
                                     </button>  
